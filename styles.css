@@ -58,15 +58,13 @@ body {
     cursor: pointer;
     padding: 0.5rem;
     z-index: 1001;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: var(--transition);
 }
 
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--primary-color);
-    transition: var(--transition);
+.hamburger-menu:hover {
+    color: var(--secondary-color);
 }
 
 .nav-links {
@@ -302,6 +300,10 @@ footer {
         transform: translateY(-50%);
     }
 
+    .hamburger-menu.active i::before {
+        content: "\f00d"; /* Font Awesome times icon */
+    }
+
     .nav-links {
         display: none;
         position: fixed;
@@ -321,19 +323,6 @@ footer {
 
     .nav-links li {
         margin: 1rem 0;
-    }
-
-    /* Hamburger Animation */
-    .hamburger-menu.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger-menu.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger-menu.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
     }
 
     .hero {

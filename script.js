@@ -1,11 +1,15 @@
 // Hamburger Menu
 const hamburger = document.querySelector('.hamburger-menu');
+const hamburgerIcon = hamburger.querySelector('i');
 const navLinks = document.querySelector('.nav-links');
 const body = document.body;
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    // Toggle between bars and times icon
+    hamburgerIcon.classList.toggle('fa-bars');
+    hamburgerIcon.classList.toggle('fa-times');
     // Prevent scrolling when menu is open
     body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
 });
@@ -15,6 +19,9 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        // Reset to bars icon
+        hamburgerIcon.classList.add('fa-bars');
+        hamburgerIcon.classList.remove('fa-times');
         body.style.overflow = '';
     });
 });
@@ -24,6 +31,9 @@ document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        // Reset to bars icon
+        hamburgerIcon.classList.add('fa-bars');
+        hamburgerIcon.classList.remove('fa-times');
         body.style.overflow = '';
     }
 });
