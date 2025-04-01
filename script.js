@@ -1,10 +1,13 @@
 // Hamburger Menu
 const hamburger = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
+const body = document.body;
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    // Prevent scrolling when menu is open
+    body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
 });
 
 // Close menu when clicking a link
@@ -12,7 +15,17 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        body.style.overflow = '';
     });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.style.overflow = '';
+    }
 });
 
 // Smooth scrolling for navigation links
