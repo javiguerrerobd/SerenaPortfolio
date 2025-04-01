@@ -967,4 +967,119 @@ footer {
     font-style: italic;
     margin-top: 1rem;
     font-size: 1.1rem;
+}
+
+.final-design-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.final-design-intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.final-design-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.design-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(39, 5, 87, 0.15);
+    aspect-ratio: 9/16;
+    background: var(--serena-dark-purple);
+}
+
+.design-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.design-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, 
+        rgba(39, 5, 87, 0.95),
+        rgba(40, 40, 118, 0.8),
+        transparent
+    );
+    padding: 2rem;
+    color: var(--white);
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.design-card:hover .design-overlay {
+    transform: translateY(0);
+}
+
+.design-card:hover .design-image {
+    transform: scale(1.05);
+}
+
+.design-overlay h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.design-overlay p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--white);
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .final-design-gallery {
+        gap: 1.5rem;
+    }
+
+    .design-overlay {
+        padding: 1.5rem;
+    }
+
+    .design-overlay h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .final-design-intro p {
+        font-size: 1.1rem;
+    }
+
+    .design-card {
+        aspect-ratio: 3/4;
+    }
+
+    .design-overlay {
+        padding: 1.25rem;
+        transform: translateY(0);
+        background: linear-gradient(to top, 
+            rgba(39, 5, 87, 0.95) 0%,
+            rgba(40, 40, 118, 0.8) 60%,
+            transparent 100%
+        );
+    }
+
+    .design-overlay h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .design-overlay p {
+        font-size: 0.9rem;
+    }
 } 
