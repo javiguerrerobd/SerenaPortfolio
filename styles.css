@@ -1082,4 +1082,126 @@ footer {
     .design-overlay p {
         font-size: 0.9rem;
     }
+}
+
+.project-banner {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top,
+        rgba(39, 5, 87, 0.95) 0%,
+        rgba(40, 40, 118, 0.8) 40%,
+        rgba(107, 107, 191, 0.4) 70%,
+        transparent 100%
+    );
+    padding: 4rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 50%;
+}
+
+.banner-overlay h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.banner-overlay p {
+    max-width: 800px;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles for the banner */
+@media (max-width: 1024px) {
+    .project-banner {
+        height: 50vh;
+    }
+
+    .banner-overlay {
+        padding: 3rem;
+    }
+
+    .banner-overlay h1 {
+        font-size: 3.5rem;
+    }
+
+    .banner-overlay p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-banner {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .banner-overlay {
+        padding: 2rem;
+    }
+
+    .banner-overlay h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner-overlay p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-banner {
+        height: auto;
+        min-height: 250px;
+    }
+
+    .banner-overlay {
+        padding: 1.5rem;
+    }
+
+    .banner-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .banner-overlay p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
 } 
