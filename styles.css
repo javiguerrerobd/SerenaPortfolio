@@ -746,6 +746,37 @@ footer {
         font-size: 0.9rem;
         line-height: 1.4;
     }
+
+    .role-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .role-card {
+        padding: 1.5rem;
+    }
+
+    .role-card i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .role-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .role-card p {
+        font-size: 1rem;
+    }
+
+    .role-list li {
+        font-size: 0.95rem;
+    }
+
+    .role-time {
+        text-align: left;
+        font-size: 1rem;
+    }
 }
 
 /* Small Mobile Phones */
@@ -869,4 +900,71 @@ footer {
 
 .profile-container:hover .profile-image {
     transform: scale(1.05);
+}
+
+.role-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.role-card {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-5px);
+}
+
+.role-card i {
+    font-size: 2.5rem;
+    color: var(--serena-dark-purple);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.role-card h3 {
+    color: var(--serena-dark-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.role-card p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.role-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.role-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+.role-list li::before {
+    content: "•";
+    color: var(--serena-light-purple);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.role-time {
+    text-align: right;
+    color: var(--serena-dark-blue);
+    font-style: italic;
+    margin-top: 1rem;
+    font-size: 1.1rem;
 } 
