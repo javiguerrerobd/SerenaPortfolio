@@ -137,18 +137,83 @@ body {
     text-align: center;
     margin-bottom: 3rem;
     color: var(--primary-color);
+    font-size: 2.5rem;
 }
 
 .about-content {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 3rem;
 }
 
-.about-text p {
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-card {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.about-card h3 i {
+    color: var(--secondary-color);
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    background: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.skills {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skills h3 {
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skills h3 i {
+    color: var(--secondary-color);
 }
 
 .skills ul {
@@ -159,6 +224,9 @@ body {
     margin-bottom: 1rem;
     padding-left: 1.5rem;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .skills li::before {
@@ -348,7 +416,6 @@ footer {
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
     }
 
     .portfolio-grid {
@@ -405,9 +472,24 @@ footer {
         padding: 0.4rem 0.8rem;
     }
 
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .about {
+        padding: 3rem 1rem;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .about-card {
+        padding: 1.5rem;
+    }
+
+    .tech-list {
+        gap: 0.3rem;
+    }
+
+    .tech-tag {
+        font-size: 0.8rem;
     }
 
     .portfolio-grid {
