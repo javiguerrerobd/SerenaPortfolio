@@ -6,6 +6,9 @@
     --light-gray: #f5f5f5;
     --white: #ffffff;
     --transition: all 0.3s ease;
+    --serena-dark-purple: #270557;
+    --serena-dark-blue: #282876;
+    --serena-light-purple: #6B6BBF;
 }
 
 /* Reset and Base Styles */
@@ -238,42 +241,45 @@ body {
 
 /* Portfolio Section */
 .portfolio {
-    padding: 5rem 2rem;
-    background: var(--light-gray);
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--serena-dark-purple), var(--serena-dark-blue));
 }
 
 .portfolio h2 {
+    color: var(--white);
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--primary-color);
     font-size: 2.5rem;
 }
 
 .portfolio-grid {
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .portfolio-item {
     background: var(--white);
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+    border: 2px solid transparent;
+    position: relative;
 }
 
 .portfolio-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(107, 107, 191, 0.3);
+    border-color: var(--serena-light-purple);
 }
 
 .portfolio-image {
@@ -290,9 +296,9 @@ body {
 }
 
 .portfolio-content h3 {
+    color: var(--serena-dark-purple);
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
 }
 
 .portfolio-content p {
@@ -302,26 +308,43 @@ body {
 }
 
 .view-project {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: var(--secondary-color);
+    background: var(--serena-dark-blue);
     color: var(--white);
-    text-decoration: none;
-    border-radius: 5px;
-    transition: var(--transition);
-    text-align: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-weight: 500;
     margin-top: auto;
-    width: fit-content;
-}
-
-.view-project i {
-    margin-left: 0.5rem;
 }
 
 .view-project:hover {
-    background: #2980b9;
+    background: var(--serena-light-purple);
     transform: translateY(-2px);
+}
+
+.view-project i {
+    transition: transform 0.3s ease;
+}
+
+.view-project:hover i {
+    transform: translateX(5px);
+}
+
+.portfolio-logo {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    z-index: 2;
+    background: var(--white);
+    border-radius: 50%;
+    padding: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Contact Section */
