@@ -262,83 +262,56 @@ body {
 }
 
 .portfolio-item {
-    background: var(--white);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    height: clamp(300px, 50vh, 500px);
     display: flex;
     flex-direction: column;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    border: 2px solid transparent;
-    position: relative;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(107, 107, 191, 0.3);
-    border-color: var(--serena-light-purple);
 }
 
 .portfolio-image {
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .portfolio-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top,
+        rgba(39, 5, 87, 0.95) 0%,
+        rgba(40, 40, 118, 0.8) 40%,
+        rgba(107, 107, 191, 0.2) 80%,
+        transparent 100%
+    );
+    padding: 2rem;
+    color: var(--white);
+    transform: translateY(0);
+    transition: transform 0.5s ease;
 }
 
 .portfolio-content h3 {
-    color: var(--serena-dark-purple);
-    font-size: 1.5rem;
+    color: var(--white);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-content p {
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-    flex-grow: 1;
-}
-
-.view-project {
-    background: var(--serena-dark-blue);
     color: var(--white);
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    margin-top: auto;
-}
-
-.view-project:hover {
-    background: var(--serena-light-purple);
-    transform: translateY(-2px);
-}
-
-.view-project i {
-    transition: transform 0.3s ease;
-}
-
-.view-project:hover i {
-    transform: translateX(5px);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-logo {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    width: 80px;
-    height: 80px;
+    width: clamp(60px, 8vw, 80px);
+    height: clamp(60px, 8vw, 80px);
     object-fit: contain;
     z-index: 2;
     background: var(--white);
@@ -1097,6 +1070,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
     transition: transform 0.5s ease;
 }
@@ -1121,8 +1095,8 @@ footer {
 }
 
 .banner-overlay h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: clamp(0.5rem, 2vw, 1rem);
     color: var(--white);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     opacity: 0;
@@ -1132,7 +1106,7 @@ footer {
 
 .banner-overlay p {
     max-width: 800px;
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2vw, 1.3rem);
     line-height: 1.6;
     color: var(--white);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -1149,6 +1123,16 @@ footer {
 }
 
 /* Responsive styles for the banner */
+@media (min-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+
+    .portfolio-item:hover .portfolio-content {
+        transform: translateY(-10px);
+    }
+}
+
 @media (max-width: 1024px) {
     .project-banner {
         height: 50vh;
@@ -1158,12 +1142,12 @@ footer {
         padding: 3rem;
     }
 
-    .banner-overlay h1 {
-        font-size: 3.5rem;
+    .portfolio-item {
+        height: clamp(250px, 40vh, 400px);
     }
 
-    .banner-overlay p {
-        font-size: 1.2rem;
+    .portfolio-content {
+        padding: 1.5rem;
     }
 }
 
@@ -1177,12 +1161,17 @@ footer {
         padding: 2rem;
     }
 
-    .banner-overlay h1 {
-        font-size: 2.5rem;
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
     }
 
-    .banner-overlay p {
-        font-size: 1.1rem;
+    .portfolio-item {
+        height: clamp(200px, 35vh, 350px);
+    }
+
+    .portfolio-content {
+        padding: 1.25rem;
     }
 }
 
@@ -1196,12 +1185,11 @@ footer {
         padding: 1.5rem;
     }
 
-    .banner-overlay h1 {
-        font-size: 2rem;
+    .portfolio-item {
+        height: clamp(180px, 30vh, 300px);
     }
 
-    .banner-overlay p {
-        font-size: 1rem;
-        line-height: 1.5;
+    .portfolio-content {
+        padding: 1rem;
     }
 } 
